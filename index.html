@@ -85,6 +85,30 @@
         </select>
         <button class="btn-add">Add Task</button>
     </div>
-    
+    <script>
+        
+        const toDoList=document.querySelector('.cards')
+        const addButton=document.querySelector('.btn-add')
+        const inputTask=document.querySelector('.input')
+        const prioritySelect=document.querySelector('.priority')
+
+        const taskList=new Map()
+        
+
+        
+        addButton.addEventListener('click',function(){
+          if(!inputTask.value){
+            alert('Enter the Task')
+          }
+          else{
+            taskList.set('task',inputTask.value)
+            taskList.set('priority',prioritySelect.value)
+            toDoList.innerHTML +=`<div id="cards"><b>Task Name:-</b>${taskList.get('task')}</br>Priority:-${taskList.get('priority')}</div>`
+
+          }
+         
+          }
+        )
+    </script>
   </body>
 </html>
